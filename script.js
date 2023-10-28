@@ -1,5 +1,5 @@
 //Q1 
-//a. Print odd numbers in an array
+//a.Print odd numbers in an array
 //Anonymous function 
 
 var result = [];
