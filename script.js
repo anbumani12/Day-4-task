@@ -195,49 +195,47 @@ console.log(findPrimes([1,2,3,4,5,6,7,8,9,10]));
 //e.Return all the palindromes in an array
 //Anonymous function
 
-var a = ["racecar", "hello", "deified", "world", "level", "moon"];
-var palindromes = function(arr){
-  var result = [];
-  for (var i = 0; i<arr.length; i=i+1) {
-    var str = arr[i].replace(/\s/g, '').toLowerCase();
-    if (str === str.split('').reverse().join('')) {
-      result.push(arr[i]);
+var result = [];
+var a = function (arr){
+    for (var i=0;i<arr.length;i++){
+        var data = arr[i].split("").reverse().join("");
+        if (data===arr[i]){
+            result.push(arr[i]);
+        }
     }
-  }
-  return result;
+    return result;
 }
-console.log(palindromes(a));
+console.log(a(['racecar','level','hello','git','dad']));
+
 
 //IIFE function
 
-var a = ["racecar", "hello", "deified", "world", "level", "moon"];
-(function(arr){
-  var result = [];
-  for (var i = 0; i<arr.length; i=i+1) {
-    var str = arr[i].replace(/\s/g, '').toLowerCase();
-    if (str === str.split('').reverse().join('')) {
-      result.push(arr[i]);
+var result = [];
+(function (arr){
+    for (var i=0;i<arr.length;i++){
+        var data = arr[i].split("").reverse().join("");
+        if (data===arr[i]){
+            result.push(arr[i]);
+        }
     }
-  }
-  console.log(result);
-})(["racecar", "hello", "deified", "world", "level", "moon"]);
+    console.log(result);
+})(['racecar','level','hello','git','dad']);
 
 //Q2
 //e.Return all the palindromes in an array
 //Arrow function
 
-var a = ["racecar", "hello", "deified", "world", "level", "moon"];
-var palindromes =(arr)=>{
-  var result = [];
-  for (var i = 0; i<arr.length; i=i+1) {
-    var str = arr[i].replace(/\s/g, '').toLowerCase();
-    if (str === str.split('').reverse().join('')) {
-      result.push(arr[i]);
+var result = [];
+var a = (arr)=>{
+    for (var i=0;i<arr.length;i++){
+        var data = arr[i].split("").reverse().join("");
+        if (data===arr[i]){
+            result.push(arr[i]);
+        }
     }
-  }
-  return result;
+    return result;
 }
-console.log(palindromes(a));
+console.log(a(['racecar','level','hello','git','dad']));
 
 
 //Q1
