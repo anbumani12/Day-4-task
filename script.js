@@ -272,34 +272,32 @@ console.log(result);
   
 
 //Q1
-//h.Rotate an array by k times
+//g.Rotate an array by k times
 //Anonymous function
 
-function rotateArray(arr,k) {
-    var n = arr.length;
-    k = k%n;
-    var rotated = new Array(n);
-    for (let i=0;i<n;i=i+1) {
-        var newIndex = (i+k) % n;
-        rotated[newIndex] = arr[i];
+var arr = [1, 2, 3, 4, 5];
+var k = 3;
+var a = function (arr, k) {
+    for (var i=0;i<k;i++) {
+        arr.push(arr[i]);
     }
-    return rotated;
+    for (var i=0;i<k;i++) {
+        arr.shift();
+    }
 }
-var arr = [1,2,3,4,5];
-var k = 2;
-var result = rotateArray(arr,k);
-console.log(result);
+a(arr, k);
+console.log(arr);
 
 //IIFE function
 
-var rotatedArray = (function(arr,k) {
-    var n = arr.length;
-    k = k%n;
-    var rotated = new Array(n);
-    for (let i=0;i<n; i=i+1) {
-        var newIndex = (i+k) % n;
-        rotated[newIndex] = arr[i];
+const arr1 = [1,2,3,4,5];
+const k1 = 3;
+(function (arr1,k1){
+    for (var i=0;i<k1;i++){
+        arr1.push(arr1[i]);
     }
-    return rotated;
-})([1,2,3,4,5],2);
-console.log(rotatedArray);
+    for (var i=0;i<k1;i++){
+        arr1.shift();
+    }
+    console.log(arr1);
+})(arr1,k1);
