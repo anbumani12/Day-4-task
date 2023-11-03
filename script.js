@@ -240,149 +240,36 @@ console.log(a(['racecar','level','hello','git','dad']));
 
 //Q1
 //f.Return median of two sorted arrays of the same size
+//anonymous function
 
-var findMedianSortedArrays = function(nums1, nums2) {
-    const mergedArray = mergeSortedArrays(nums1, nums2);
-    const length = mergedArray.length;
-    if (length % 2 === 0) {
-      const mid1 = length/2-1;
-      const mid2 = length/2;
-      return (mergedArray[mid1] + mergedArray[mid2])/2;
-    } 
-    else {
-      const mid = Math.floor(length/2);
-      return mergedArray[mid];
-    }
+var a =function MedianSortedArray(arr1,arr2){
+  let arr = [...arr1,...arr2];
+  arr.sort((a,b)=>a-b);
+  let n = arr.length;
+  if (n%2===0){
+      return ((arr[n/2]+arr[n/2-1])/2);
   }
-  function mergeSortedArrays(nums1,nums2){
-    const merged = [];
-    let i = 0;
-    let j = 0;
-    while (i<nums1.length && j<nums2.length){
-      if (nums1[i] < nums2[j]){
-        merged.push(nums1[i]);
-        i++;
-      } else
-       {
-        merged.push(nums2[j]);
-        j++;
-      }
-    }
-    while (i<nums1.length){
-      merged.push(nums1[i]);
-      i++;
-    }
-    while (j<nums2.length) {
-      merged.push(nums2[j]);
-      j++;
-    }
-    return merged;
+  else{
+      return arr[Math.floor(n/2)];
   }
-  const nums1 = [1,3,5,7,9];
-  const nums2 = [2,4,6,8,10];
-  const median = findMedianSortedArrays(nums1,nums2);
-  console.log(median);
-  
+}
+console.log(a([1,3,5,7],[2,4,6,8]));
 
 //IIFE function
 
-(function () {
-    var findMedianSortedArrays = function(nums1, nums2) {
-      const mergedArray = mergeSortedArrays(nums1, nums2);
-      const length = mergedArray.length;
-      if (length % 2 === 0) {
-        const mid1 = length / 2 - 1;
-        const mid2 = length / 2;
-        return (mergedArray[mid1] + mergedArray[mid2]) / 2;
-      } else {
-        const mid = Math.floor(length / 2);
-        return mergedArray[mid];
-      }
-    }
-    function mergeSortedArrays(nums1, nums2) {
-      const merged = [];
-      let i = 0;
-      let j = 0;
-      while (i < nums1.length && j < nums2.length) {
-        if (nums1[i] < nums2[j]) {
-          merged.push(nums1[i]);
-          i++;
-        } else {
-          merged.push(nums2[j]);
-          j++;
-        }
-      }
-      while (i < nums1.length) {
-        merged.push(nums1[i]);
-        i++;
-      }
-      while (j < nums2.length) {
-        merged.push(nums2[j]);
-        j++;
-      }
-      return merged;
-    }
-    const nums1 = [1, 3, 5, 7, 9];
-    const nums2 = [2, 4, 6, 8, 10];
-    const median = findMedianSortedArrays(nums1, nums2);
-    console.log(median);
-  })();
+var result = (function MedianSortedArray(arr1, arr2) {
+  let arr = [...arr1, ...arr2];
+  arr.sort((a,b) => a-b);
+  let n = arr.length;
+  if (n%2 === 0) {
+      return ((arr[n/2] + arr[n/2-1])/2);
+  } else {
+      return arr[Math.floor(n/2)];
+  }
+})([1, 3, 5, 7], [2, 4, 6, 8]);
+
+console.log(result);
   
-
-//Q1
-//g.Remove duplicates from an array
-//Anonymous function
-
-function removeDuplicates(arr) {
-    var uniqueArr = [];
-    for (var i=0;i<arr.length; i++) {
-        if (uniqueArr.indexOf(arr[i]) === -1) {
-            uniqueArr.push(arr[i]);
-        }
-    }
-    return uniqueArr;
-}
-var result = [];
-function odd(arr) {
-    for (var i=0;i<arr.length;i=i+1) {
-        if (arr[i] % 2 !== 0) {
-            result.push(arr[i]);
-        }
-    }
-    return result;
-}
-var inputArray = [1,2,3,4,5,6,7,8,9,10];
-var oddResult = odd(inputArray);
-var uniqueOddResult = removeDuplicates(oddResult);
-console.log(uniqueOddResult);
-
-//IIFE function
-
-(function() {
-    var result = [];
-    function odd(arr) {
-        for (var i=0;i<arr.length;i=i+1) {
-            if (arr[i] % 2 !== 0) {
-                result.push(arr[i]);
-            }
-        }
-        return result;
-    }
-    function removeDuplicates(arr) {
-        var uniqueArr = [];
-        for (var i=0;i<arr.length; i++) {
-            if (uniqueArr.indexOf(arr[i]) === -1) {
-                uniqueArr.push(arr[i]);
-            }
-        }
-        return uniqueArr;
-    }
-    var inputArray = [1,2,3,4,5,6,7,8,9,10];
-    var oddResult = odd(inputArray);
-    var uniqueOddResult = removeDuplicates(oddResult);
-    console.log(uniqueOddResult);
-})();
-
 
 //Q1
 //h.Rotate an array by k times
